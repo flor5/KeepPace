@@ -17,19 +17,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOJ-Xk-vG1">
-                                <rect key="frame" x="239" y="285.5" width="123.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84L-mC-PR1">
+                                <rect key="frame" x="277" y="185" width="47" height="30"/>
+                                <state key="normal" title="Slower"/>
+                                <connections>
+                                    <action selector="slowerSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znL-TV-Ddp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1z-Av-ElB">
+                                <rect key="frame" x="284" y="235" width="33" height="30"/>
+                                <state key="normal" title="Slow"/>
+                                <connections>
+                                    <action selector="slowSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cDv-TR-DuW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WQ-NF-4Kc">
+                                <rect key="frame" x="275" y="285" width="50" height="30"/>
+                                <state key="normal" title="Normal"/>
+                                <connections>
+                                    <action selector="normalSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cxy-AV-1gG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-ac-0Qb">
+                                <rect key="frame" x="285.5" y="335" width="30" height="30"/>
+                                <state key="normal" title="Fast"/>
+                                <connections>
+                                    <action selector="fastSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rUz-u7-Lj5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qn-YY-FXe">
+                                <rect key="frame" x="279" y="385" width="43" height="30"/>
+                                <state key="normal" title="Faster"/>
+                                <connections>
+                                    <action selector="fasterSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lOY-VB-GON"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uri-fv-kdJ">
+                                <rect key="frame" x="276" y="455" width="49.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QOJ-Xk-vG1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PRz-H9-LQa"/>
-                            <constraint firstItem="QOJ-Xk-vG1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d7p-BD-Y5b"/>
+                            <constraint firstItem="4qn-YY-FXe" firstAttribute="centerX" secondItem="7GQ-ac-0Qb" secondAttribute="centerX" id="2fG-jM-rPr"/>
+                            <constraint firstItem="uri-fv-kdJ" firstAttribute="top" secondItem="4qn-YY-FXe" secondAttribute="bottom" constant="40" id="3Ce-x1-nYi"/>
+                            <constraint firstItem="C1z-Av-ElB" firstAttribute="top" secondItem="84L-mC-PR1" secondAttribute="bottom" constant="20" id="5Me-1w-tip"/>
+                            <constraint firstItem="C1z-Av-ElB" firstAttribute="centerX" secondItem="8WQ-NF-4Kc" secondAttribute="centerX" id="6et-b4-YXk"/>
+                            <constraint firstItem="7GQ-ac-0Qb" firstAttribute="top" secondItem="8WQ-NF-4Kc" secondAttribute="bottom" constant="20" id="NJa-1i-0Ku"/>
+                            <constraint firstItem="uri-fv-kdJ" firstAttribute="centerX" secondItem="4qn-YY-FXe" secondAttribute="centerX" id="Pen-Cr-cxM"/>
+                            <constraint firstItem="84L-mC-PR1" firstAttribute="centerX" secondItem="C1z-Av-ElB" secondAttribute="centerX" id="eKD-Tu-wN8"/>
+                            <constraint firstItem="8WQ-NF-4Kc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eeD-s8-v4K"/>
+                            <constraint firstItem="7GQ-ac-0Qb" firstAttribute="centerX" secondItem="8WQ-NF-4Kc" secondAttribute="centerX" id="f1Q-No-kK3"/>
+                            <constraint firstItem="8WQ-NF-4Kc" firstAttribute="top" secondItem="C1z-Av-ElB" secondAttribute="bottom" constant="20" id="nOm-cX-bGh"/>
+                            <constraint firstItem="4qn-YY-FXe" firstAttribute="top" secondItem="7GQ-ac-0Qb" secondAttribute="bottom" constant="20" id="oHB-JY-QKQ"/>
+                            <constraint firstItem="8WQ-NF-4Kc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rwb-e3-xp4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="speedLabel" destination="uri-fv-kdJ" id="Bek-bs-0R5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
