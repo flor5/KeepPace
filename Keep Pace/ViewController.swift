@@ -12,7 +12,7 @@ import NotificationCenter
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-    
+    // Fong - test branch
     var player: MPMusicPlayerController!
     
     let slowerSpeed: Float = 0.7
