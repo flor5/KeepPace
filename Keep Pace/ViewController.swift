@@ -4,7 +4,7 @@
 //
 //  Created by Fong Lor on 10/28/16.
 //  Copyright © 2016 Capstone. All rights reserved.
-//
+// Changed TEST
 
 import UIKit
 import MediaPlayer
@@ -27,25 +27,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var speedLabel: UILabel!
     
-    @IBAction func slowerSong(sender: AnyObject) {
+    @IBAction func slowerSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: slowerSpeed)
     }
     
-    @IBAction func slowSong(sender: AnyObject) {
+    @IBAction func slowSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: slowSpeed)
     }
     
-    @IBAction func normalSong(sender: AnyObject) {
+    @IBAction func normalSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: normalSpeed)
         
         player.currentPlaybackRate = normalSpeed
     }
     
-    @IBAction func fastSong(sender: AnyObject) {
+    @IBAction func fastSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: fastSpeed)
     }
     
-    @IBAction func fasterSong(sender: AnyObject) {
+    @IBAction func fasterSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: fasterSpeed)
     }
     
@@ -70,16 +70,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         manager.startUpdatingLocation()
         
         // Detect when the app enters the background
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(stopMusic), name: UIApplicationWillResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopMusic), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         
-        let songs = MPMediaQuery.songsQuery().items
+        let songs = MPMediaQuery.songs().items
         
         if !songs!.isEmpty {
             print("\(songs![0].beatsPerMinute)")
             //let query = MPMediaQuery.songsQuery()
             let collection = MPMediaItemCollection(items: songs!)
             player = MPMusicPlayerController.systemMusicPlayer()
-            player.setQueueWithItemCollection(collection)
+            player.setQueue(with: collection)
             
             player.play()
         }
@@ -90,14 +90,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let speed = manager.location!.speed
         
         index += 1
         speedLabel.text =  speed > 0 ? "i: \(index) Speed: \(manager.location!.speed)" : "i: \(index) Speed: 0"
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error.localizedDescription)")
     }
     
