@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Keep Pace
 //
-//  Created by Fong Lor on 10/28/16.
+//  Created by Fong Lor, Carey Kuehl on 10/28/16.
 //  Copyright © 2016 Capstone. All rights reserved.
 //
 
