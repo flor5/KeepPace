@@ -2,9 +2,9 @@
 //  ViewController.swift
 //  Keep Pace
 //
-//  Created by iOS Team on 10/28/16.
+//  Created by Fong Lor, Carey Kuehl on 10/28/16.
 //  Copyright © 2016 Capstone. All rights reserved.
-//
+// Changed TEST22222
 
 import UIKit
 import MediaPlayer
@@ -89,6 +89,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.manager.delegate = self
                 self.manager.startUpdatingLocation()
             }
+
         }
         
         // Detect when the app enters the background. If so, call stopMusic()
