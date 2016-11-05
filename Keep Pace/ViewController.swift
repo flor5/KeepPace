@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Keep Pace
 //
-//  Created by Fong Lor on 10/28/16.
+//  Created by iOS Team on 10/28/16.
 //  Copyright © 2016 Capstone. All rights reserved.
 //
 
@@ -27,85 +27,94 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var speedLabel: UILabel!
     
-    @IBAction func slowerSong(sender: AnyObject) {
+    @IBAction func slowerSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: slowerSpeed)
     }
     
-    @IBAction func slowSong(sender: AnyObject) {
+    @IBAction func slowSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: slowSpeed)
     }
     
-    @IBAction func normalSong(sender: AnyObject) {
+    @IBAction func normalSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: normalSpeed)
         
         player.currentPlaybackRate = normalSpeed
     }
     
-    @IBAction func fastSong(sender: AnyObject) {
+    @IBAction func fastSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: fastSpeed)
     }
     
-    @IBAction func fasterSong(sender: AnyObject) {
+    @IBAction func fasterSong(_ sender: AnyObject) {
         changeCurrentPlaybackRate(to: fasterSpeed)
     }
     
     func changeCurrentPlaybackRate(to speed: Float) {
-        while player.currentPlaybackRate > speed {
-            player.currentPlaybackRate -= 0.01
-            print(player.currentPlaybackRate)
-        }
+//        while player.currentPlaybackRate > speed {
+//            player.currentPlaybackRate -= 0.01
+//            print(player.currentPlaybackRate)
+//        }
+//        
+//        while player.currentPlaybackRate < speed {
+//            player.currentPlaybackRate += 0.01
+//            print(player.currentPlaybackRate)
+//        }
         
-        while player.currentPlaybackRate < speed {
-            player.currentPlaybackRate += 0.01
-            print(player.currentPlaybackRate)
-        }
+        player.currentPlaybackRate = speed
+        print(player.currentPlaybackRate)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestAlwaysAuthorization()
-        manager.delegate = self
-        manager.startUpdatingLocation()
-        
-        // Detect when the app enters the background
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(stopMusic), name: UIApplicationWillResignActiveNotification, object: nil)
-        
-        let songs = MPMediaQuery.songsQuery().items
-        
-        if !songs!.isEmpty {
-            print("\(songs![0].beatsPerMinute)")
-            //let query = MPMediaQuery.songsQuery()
-            let collection = MPMediaItemCollection(items: songs!)
-            player = MPMusicPlayerController.systemMusicPlayer()
-            player.setQueueWithItemCollection(collection)
-            
-            player.play()
+ 
+        MPMediaLibrary.requestAuthorization { (status) in
+            if status == .authorized {
+                
+                let songs = MPMediaQuery.songs().items
+                print("you have \(songs!.count) songs")
+                
+                if !songs!.isEmpty {
+                    print("bpm: \(songs![0].beatsPerMinute)")
+                    //let query = MPMediaQuery.songsQuery()
+                    let collection = MPMediaItemCollection(items: songs!)
+                    self.player = MPMusicPlayerController.systemMusicPlayer()
+                    self.player.setQueue(with: collection)
+                    
+                    self.player.play()
+                    print("play music")
+                }
+                
+                self.manager.desiredAccuracy = kCLLocationAccuracyBest
+                self.manager.requestAlwaysAuthorization()
+                self.manager.delegate = self
+                self.manager.startUpdatingLocation()
+            }
         }
         
+        // Detect when the app enters the background. If so, call stopMusic()
+//        NotificationCenter.default.addObserver(self, selector: #selector(stopMusic), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let speed = manager.location!.speed
         
         index += 1
         speedLabel.text =  speed > 0 ? "i: \(index) Speed: \(manager.location!.speed)" : "i: \(index) Speed: 0"
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error.localizedDescription)")
     }
-    
-    
-    
-    func stopMusic(){
-        player.stop()
-        print("player stopped")
+
+    private func stopMusic() {
+        if player != nil {
+            //player.stop()
+            print("player stopped")
+        }
     }
     
 }
