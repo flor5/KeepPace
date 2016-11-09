@@ -25,30 +25,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let manager = CLLocationManager()
     
-    @IBOutlet weak var speedLabel: UILabel!
-    
-    @IBAction func slowerSong(_ sender: AnyObject) {
-        changeCurrentPlaybackRate(to: slowerSpeed)
-    }
-    
-    @IBAction func slowSong(_ sender: AnyObject) {
-        changeCurrentPlaybackRate(to: slowSpeed)
-    }
-    
-    @IBAction func normalSong(_ sender: AnyObject) {
-        changeCurrentPlaybackRate(to: normalSpeed)
-        
-        player.currentPlaybackRate = normalSpeed
-    }
-    
-    @IBAction func fastSong(_ sender: AnyObject) {
-        changeCurrentPlaybackRate(to: fastSpeed)
-    }
-    
-    @IBAction func fasterSong(_ sender: AnyObject) {
-        changeCurrentPlaybackRate(to: fasterSpeed)
-    }
-    
     func changeCurrentPlaybackRate(to speed: Float) {
 //        while player.currentPlaybackRate > speed {
 //            player.currentPlaybackRate -= 0.01
@@ -66,6 +42,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Keep Pace"
  
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
@@ -89,11 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.manager.delegate = self
                 self.manager.startUpdatingLocation()
             }
-
         }
-        
-        // Detect when the app enters the background. If so, call stopMusic()
-//        NotificationCenter.default.addObserver(self, selector: #selector(stopMusic), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,7 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let speed = manager.location!.speed
         
         index += 1
-        speedLabel.text =  speed > 0 ? "i: \(index) Speed: \(manager.location!.speed)" : "i: \(index) Speed: 0"
+        //speedLabel.text =  speed > 0 ? "i: \(index) Speed: \(manager.location!.speed)" : "i: \(index) Speed: 0"
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

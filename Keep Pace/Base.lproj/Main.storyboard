@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zeo-0R-Pyf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--SpeedVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Keep_Pace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SpeedVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Keep_Pace" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,66 +20,73 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84L-mC-PR1">
-                                <state key="normal" title="Slower"/>
-                                <connections>
-                                    <action selector="slowerSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znL-TV-Ddp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1z-Av-ElB">
-                                <state key="normal" title="Slow"/>
-                                <connections>
-                                    <action selector="slowSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cDv-TR-DuW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WQ-NF-4Kc">
-                                <state key="normal" title="Normal"/>
-                                <connections>
-                                    <action selector="normalSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cxy-AV-1gG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-ac-0Qb">
-                                <state key="normal" title="Fast"/>
-                                <connections>
-                                    <action selector="fastSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rUz-u7-Lj5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qn-YY-FXe">
-                                <state key="normal" title="Faster"/>
-                                <connections>
-                                    <action selector="fasterSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lOY-VB-GON"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uri-fv-kdJ">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="4qn-YY-FXe" firstAttribute="centerX" secondItem="7GQ-ac-0Qb" secondAttribute="centerX" id="2fG-jM-rPr"/>
-                            <constraint firstItem="uri-fv-kdJ" firstAttribute="top" secondItem="4qn-YY-FXe" secondAttribute="bottom" constant="40" id="3Ce-x1-nYi"/>
-                            <constraint firstItem="C1z-Av-ElB" firstAttribute="top" secondItem="84L-mC-PR1" secondAttribute="bottom" constant="20" id="5Me-1w-tip"/>
-                            <constraint firstItem="C1z-Av-ElB" firstAttribute="centerX" secondItem="8WQ-NF-4Kc" secondAttribute="centerX" id="6et-b4-YXk"/>
-                            <constraint firstItem="7GQ-ac-0Qb" firstAttribute="top" secondItem="8WQ-NF-4Kc" secondAttribute="bottom" constant="20" id="NJa-1i-0Ku"/>
-                            <constraint firstItem="uri-fv-kdJ" firstAttribute="centerX" secondItem="4qn-YY-FXe" secondAttribute="centerX" id="Pen-Cr-cxM"/>
-                            <constraint firstItem="84L-mC-PR1" firstAttribute="centerX" secondItem="C1z-Av-ElB" secondAttribute="centerX" id="eKD-Tu-wN8"/>
-                            <constraint firstItem="8WQ-NF-4Kc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eeD-s8-v4K"/>
-                            <constraint firstItem="7GQ-ac-0Qb" firstAttribute="centerX" secondItem="8WQ-NF-4Kc" secondAttribute="centerX" id="f1Q-No-kK3"/>
-                            <constraint firstItem="8WQ-NF-4Kc" firstAttribute="top" secondItem="C1z-Av-ElB" secondAttribute="bottom" constant="20" id="nOm-cX-bGh"/>
-                            <constraint firstItem="4qn-YY-FXe" firstAttribute="top" secondItem="7GQ-ac-0Qb" secondAttribute="bottom" constant="20" id="oHB-JY-QKQ"/>
-                            <constraint firstItem="8WQ-NF-4Kc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rwb-e3-xp4"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="SpeedVC" id="AR1-6D-5nZ"/>
                     <connections>
-                        <outlet property="speedLabel" destination="uri-fv-kdJ" id="Bek-bs-0R5"/>
+                        <segue destination="cqf-Dc-Vux" kind="show" id="4ez-fO-ZpL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="337"/>
+            <point key="canvasLocation" x="1206" y="337"/>
+        </scene>
+        <!--SongListVC-->
+        <scene sceneID="ufV-3t-Fby">
+            <objects>
+                <viewController title="SongListVC" id="cqf-Dc-Vux" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M8Y-gt-tHt"/>
+                        <viewControllerLayoutGuide type="bottom" id="imz-5Z-JeH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZjY-wg-fgn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="75a-eO-WBk" kind="show" id="nCe-V6-BcU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lD2-vQ-WnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026" y="337"/>
+        </scene>
+        <!--SongVC-->
+        <scene sceneID="i13-ao-F16">
+            <objects>
+                <viewController title="SongVC" id="75a-eO-WBk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="66P-H9-YFq"/>
+                        <viewControllerLayoutGuide type="bottom" id="tAO-Kr-fRM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S2n-eD-sh3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kV5-fC-JG3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2804" y="337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kbm-Cy-L0Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zeo-0R-Pyf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9P3-PY-hHM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NNb-SL-LeH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="94C-lL-3Ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="336.88155922038982"/>
         </scene>
     </scenes>
 </document>
