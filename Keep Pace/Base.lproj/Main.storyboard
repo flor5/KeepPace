@@ -12,7 +12,7 @@
         <!--SpeedVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="SpeedVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Keep_Pace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SpeedVC" id="BYZ-38-t0r" customClass="SpeedVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,7 +20,37 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-Li-LE0">
+                                <rect key="frame" x="155" y="235" width="64" height="64"/>
+                                <state key="normal" title="Slow" backgroundImage="slow"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-ar-3UQ">
+                                <rect key="frame" x="155" y="349" width="64" height="64"/>
+                                <state key="normal" title="Medium" backgroundImage="medium"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFt-9J-RJY">
+                                <rect key="frame" x="155" y="463" width="64" height="64"/>
+                                <state key="normal" title="Fast" backgroundImage="fast"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuB-pq-VfF">
+                                <rect key="frame" x="107.5" y="117" width="176.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Uu-Li-LE0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0OK-2g-4wY"/>
+                            <constraint firstItem="wuB-pq-VfF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="7h3-a9-vAJ"/>
+                            <constraint firstItem="8Uu-Li-LE0" firstAttribute="top" secondItem="wuB-pq-VfF" secondAttribute="bottom" constant="89" id="A4I-WT-edj"/>
+                            <constraint firstItem="nFt-9J-RJY" firstAttribute="top" secondItem="cjV-ar-3UQ" secondAttribute="bottom" constant="50" id="BB7-wG-mZq"/>
+                            <constraint firstItem="wuB-pq-VfF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="8" id="Ldi-B4-Oyb"/>
+                            <constraint firstItem="cjV-ar-3UQ" firstAttribute="top" secondItem="8Uu-Li-LE0" secondAttribute="bottom" constant="50" id="Qb4-zC-IfH"/>
+                            <constraint firstItem="cjV-ar-3UQ" firstAttribute="centerX" secondItem="nFt-9J-RJY" secondAttribute="centerX" id="VTW-Eb-uje"/>
+                            <constraint firstItem="8Uu-Li-LE0" firstAttribute="centerX" secondItem="cjV-ar-3UQ" secondAttribute="centerX" id="uOj-vF-HNM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SpeedVC" id="AR1-6D-5nZ"/>
                     <connections>
@@ -29,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="337"/>
+            <point key="canvasLocation" x="1205.5999999999999" y="336.88155922038982"/>
         </scene>
         <!--SongListVC-->
         <scene sceneID="ufV-3t-Fby">
@@ -89,4 +119,9 @@
             <point key="canvasLocation" x="244" y="336.88155922038982"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fast" width="64" height="64"/>
+        <image name="medium" width="64" height="64"/>
+        <image name="slow" width="64" height="64"/>
+    </resources>
 </document>
