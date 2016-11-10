@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-Li-LE0">
                                 <rect key="frame" x="155" y="235" width="64" height="64"/>
                                 <state key="normal" title="Slow" backgroundImage="slow"/>
@@ -50,6 +52,43 @@
                             <constraint firstItem="cjV-ar-3UQ" firstAttribute="top" secondItem="8Uu-Li-LE0" secondAttribute="bottom" constant="50" id="Qb4-zC-IfH"/>
                             <constraint firstItem="cjV-ar-3UQ" firstAttribute="centerX" secondItem="nFt-9J-RJY" secondAttribute="centerX" id="VTW-Eb-uje"/>
                             <constraint firstItem="8Uu-Li-LE0" firstAttribute="centerX" secondItem="cjV-ar-3UQ" secondAttribute="centerX" id="uOj-vF-HNM"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-Pn-p7C">
+                                <rect key="frame" x="155.5" y="350" width="64" height="64"/>
+                                <state key="normal" title="Medium" backgroundImage="medium">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-zd-IRm">
+                                <rect key="frame" x="155.5" y="236" width="64" height="64"/>
+                                <state key="normal" title="Slow" backgroundImage="slow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ew4-Fn-tTE">
+                                <rect key="frame" x="155.5" y="464" width="64" height="64"/>
+                                <state key="normal" title="Fast" backgroundImage="fast">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaC-xM-VFe">
+                                <rect key="frame" x="99" y="116" width="176.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CLo-Pn-p7C" firstAttribute="top" secondItem="iRM-zd-IRm" secondAttribute="bottom" constant="50" id="516-gb-XI9"/>
+                            <constraint firstItem="xaC-xM-VFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="52" id="AQm-hH-Y0G"/>
+                            <constraint firstItem="iRM-zd-IRm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MeB-7i-gAi"/>
+                            <constraint firstItem="Ew4-Fn-tTE" firstAttribute="top" secondItem="CLo-Pn-p7C" secondAttribute="bottom" constant="50" id="XLy-qI-HLv"/>
+                            <constraint firstItem="iRM-zd-IRm" firstAttribute="top" secondItem="xaC-xM-VFe" secondAttribute="bottom" constant="91" id="fxj-Va-V86"/>
+                            <constraint firstItem="iRM-zd-IRm" firstAttribute="centerX" secondItem="CLo-Pn-p7C" secondAttribute="centerX" id="lE3-TT-GDK"/>
+                            <constraint firstItem="CLo-Pn-p7C" firstAttribute="centerX" secondItem="Ew4-Fn-tTE" secondAttribute="centerX" id="pup-Lh-I0y"/>
+                            <constraint firstItem="xaC-xM-VFe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vka-GN-wy6"/>
+>>>>>>> fong
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SpeedVC" id="AR1-6D-5nZ"/>
@@ -64,7 +103,7 @@
         <!--SongListVC-->
         <scene sceneID="ufV-3t-Fby">
             <objects>
-                <viewController title="SongListVC" id="cqf-Dc-Vux" sceneMemberID="viewController">
+                <viewController title="SongListVC" id="cqf-Dc-Vux" customClass="SongListVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M8Y-gt-tHt"/>
                         <viewControllerLayoutGuide type="bottom" id="imz-5Z-JeH"/>
@@ -72,7 +111,20 @@
                     <view key="view" contentMode="scaleToFill" id="ZjY-wg-fgn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4PG-Q0-6XJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4PG-Q0-6XJ" secondAttribute="trailing" constant="-16" id="P4a-Xd-WbH"/>
+                            <constraint firstItem="4PG-Q0-6XJ" firstAttribute="leading" secondItem="ZjY-wg-fgn" secondAttribute="leadingMargin" constant="-16" id="UV7-3o-y0Y"/>
+                            <constraint firstItem="imz-5Z-JeH" firstAttribute="top" secondItem="4PG-Q0-6XJ" secondAttribute="bottom" id="xm3-B5-d27"/>
+                            <constraint firstItem="4PG-Q0-6XJ" firstAttribute="top" secondItem="M8Y-gt-tHt" secondAttribute="bottom" constant="-64" id="z5g-zR-Dew"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="75a-eO-WBk" kind="show" id="nCe-V6-BcU"/>
@@ -80,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD2-vQ-WnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="337"/>
+            <point key="canvasLocation" x="2024.8" y="336.88155922038982"/>
         </scene>
         <!--SongVC-->
         <scene sceneID="i13-ao-F16">
@@ -93,12 +145,64 @@
                     <view key="view" contentMode="scaleToFill" id="S2n-eD-sh3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x1i-ya-afF">
+                                <rect key="frame" x="57" y="89" width="260" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="Ic8-sE-Mv9"/>
+                                    <constraint firstAttribute="width" constant="260" id="WyC-HF-YJm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dm-Wt-jaP">
+                                <rect key="frame" x="121" y="442" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="gM0-Hw-e7W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-Bj-NJv">
+                                <rect key="frame" x="121" y="494" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EL-ys-arz">
+                                <rect key="frame" x="313" y="587" width="40" height="40"/>
+                                <state key="normal" backgroundImage="stopButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCB-5T-xqi">
+                                <rect key="frame" x="16" y="587" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="2hD-dQ-zJU"/>
+                                    <constraint firstAttribute="height" constant="40" id="Yxp-hq-hW6"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="playButton"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XCB-5T-xqi" firstAttribute="height" secondItem="1EL-ys-arz" secondAttribute="height" id="14q-1q-tiD"/>
+                            <constraint firstItem="tAO-Kr-fRM" firstAttribute="top" secondItem="9Dm-Wt-jaP" secondAttribute="bottom" constant="204" id="8Dj-sX-qSj"/>
+                            <constraint firstItem="1EL-ys-arz" firstAttribute="top" secondItem="66P-H9-YFq" secondAttribute="bottom" constant="523" id="Aff-jY-TXI"/>
+                            <constraint firstItem="CoO-Bj-NJv" firstAttribute="width" secondItem="9Dm-Wt-jaP" secondAttribute="width" id="CV5-Sf-Gdh"/>
+                            <constraint firstItem="9Dm-Wt-jaP" firstAttribute="leading" secondItem="S2n-eD-sh3" secondAttribute="leadingMargin" constant="105" id="Dol-49-sLN"/>
+                            <constraint firstItem="CoO-Bj-NJv" firstAttribute="leading" secondItem="S2n-eD-sh3" secondAttribute="leadingMargin" constant="105" id="HPr-s8-g8G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XCB-5T-xqi" secondAttribute="trailing" constant="303" id="WpI-qK-TWq"/>
+                            <constraint firstItem="XCB-5T-xqi" firstAttribute="top" secondItem="66P-H9-YFq" secondAttribute="bottom" constant="523" id="c3a-ji-VUO"/>
+                            <constraint firstItem="XCB-5T-xqi" firstAttribute="width" secondItem="1EL-ys-arz" secondAttribute="width" id="gyP-t1-Zm1"/>
+                            <constraint firstItem="tAO-Kr-fRM" firstAttribute="top" secondItem="CoO-Bj-NJv" secondAttribute="bottom" constant="152" id="kiK-lR-Vwy"/>
+                            <constraint firstItem="x1i-ya-afF" firstAttribute="top" secondItem="66P-H9-YFq" secondAttribute="bottom" constant="25" id="mh7-T9-iJ4"/>
+                            <constraint firstItem="1EL-ys-arz" firstAttribute="leading" secondItem="S2n-eD-sh3" secondAttribute="leadingMargin" constant="297" id="mzq-k6-AaM"/>
+                            <constraint firstItem="CoO-Bj-NJv" firstAttribute="height" secondItem="9Dm-Wt-jaP" secondAttribute="height" id="va3-47-IW7"/>
+                            <constraint firstItem="x1i-ya-afF" firstAttribute="centerX" secondItem="S2n-eD-sh3" secondAttribute="centerX" id="vbA-7G-JEp"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kV5-fC-JG3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2804" y="337"/>
+            <point key="canvasLocation" x="2804" y="336.88155922038982"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kbm-Cy-L0Y">
@@ -122,6 +226,12 @@
     <resources>
         <image name="fast" width="64" height="64"/>
         <image name="medium" width="64" height="64"/>
+<<<<<<< HEAD
         <image name="slow" width="64" height="64"/>
+=======
+        <image name="playButton" width="64" height="64"/>
+        <image name="slow" width="64" height="64"/>
+        <image name="stopButton" width="64" height="64"/>
+>>>>>>> fong
     </resources>
 </document>
