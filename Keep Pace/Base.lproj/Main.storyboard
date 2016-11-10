@@ -22,7 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uu-Li-LE0">
                                 <rect key="frame" x="155" y="235" width="64" height="64"/>
                                 <state key="normal" title="Slow" backgroundImage="slow"/>
@@ -38,11 +37,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuB-pq-VfF">
                                 <rect key="frame" x="107.5" y="117" width="176.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Uu-Li-LE0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0OK-2g-4wY"/>
                             <constraint firstItem="wuB-pq-VfF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="7h3-a9-vAJ"/>
@@ -52,43 +51,6 @@
                             <constraint firstItem="cjV-ar-3UQ" firstAttribute="top" secondItem="8Uu-Li-LE0" secondAttribute="bottom" constant="50" id="Qb4-zC-IfH"/>
                             <constraint firstItem="cjV-ar-3UQ" firstAttribute="centerX" secondItem="nFt-9J-RJY" secondAttribute="centerX" id="VTW-Eb-uje"/>
                             <constraint firstItem="8Uu-Li-LE0" firstAttribute="centerX" secondItem="cjV-ar-3UQ" secondAttribute="centerX" id="uOj-vF-HNM"/>
-=======
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-Pn-p7C">
-                                <rect key="frame" x="155.5" y="350" width="64" height="64"/>
-                                <state key="normal" title="Medium" backgroundImage="medium">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-zd-IRm">
-                                <rect key="frame" x="155.5" y="236" width="64" height="64"/>
-                                <state key="normal" title="Slow" backgroundImage="slow">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ew4-Fn-tTE">
-                                <rect key="frame" x="155.5" y="464" width="64" height="64"/>
-                                <state key="normal" title="Fast" backgroundImage="fast">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaC-xM-VFe">
-                                <rect key="frame" x="99" y="116" width="176.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CLo-Pn-p7C" firstAttribute="top" secondItem="iRM-zd-IRm" secondAttribute="bottom" constant="50" id="516-gb-XI9"/>
-                            <constraint firstItem="xaC-xM-VFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="52" id="AQm-hH-Y0G"/>
-                            <constraint firstItem="iRM-zd-IRm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MeB-7i-gAi"/>
-                            <constraint firstItem="Ew4-Fn-tTE" firstAttribute="top" secondItem="CLo-Pn-p7C" secondAttribute="bottom" constant="50" id="XLy-qI-HLv"/>
-                            <constraint firstItem="iRM-zd-IRm" firstAttribute="top" secondItem="xaC-xM-VFe" secondAttribute="bottom" constant="91" id="fxj-Va-V86"/>
-                            <constraint firstItem="iRM-zd-IRm" firstAttribute="centerX" secondItem="CLo-Pn-p7C" secondAttribute="centerX" id="lE3-TT-GDK"/>
-                            <constraint firstItem="CLo-Pn-p7C" firstAttribute="centerX" secondItem="Ew4-Fn-tTE" secondAttribute="centerX" id="pup-Lh-I0y"/>
-                            <constraint firstItem="xaC-xM-VFe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vka-GN-wy6"/>
->>>>>>> fong
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SpeedVC" id="AR1-6D-5nZ"/>
@@ -226,12 +188,8 @@
     <resources>
         <image name="fast" width="64" height="64"/>
         <image name="medium" width="64" height="64"/>
-<<<<<<< HEAD
-        <image name="slow" width="64" height="64"/>
-=======
         <image name="playButton" width="64" height="64"/>
         <image name="slow" width="64" height="64"/>
         <image name="stopButton" width="64" height="64"/>
->>>>>>> fong
     </resources>
 </document>

@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		B2E82ACF1DD3EA890021D814 /* SongListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E82ACE1DD3EA890021D814 /* SongListVC.swift */; };
+		D39AAD9A1DD401B100FA96BB /* SongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39AAD981DD401B100FA96BB /* SongVC.swift */; };
+		D39AAD9B1DD401B100FA96BB /* SpeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39AAD991DD401B100FA96BB /* SpeedVC.swift */; };
+		D39AAD9D1DD401C200FA96BB /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39AAD9C1DD401C200FA96BB /* Asset.xcassets */; };
 		D3DA3EA61DC3F147005DEBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA3EA51DC3F147005DEBB6 /* AppDelegate.swift */; };
-		D3DA3EA81DC3F147005DEBB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA3EA71DC3F147005DEBB6 /* ViewController.swift */; };
 		D3DA3EAB1DC3F147005DEBB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DA3EA91DC3F147005DEBB6 /* Main.storyboard */; };
-		D3DA3EAD1DC3F147005DEBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DA3EAC1DC3F147005DEBB6 /* Assets.xcassets */; };
 		D3DA3EB01DC3F147005DEBB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DA3EAE1DC3F147005DEBB6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B2E82ACE1DD3EA890021D814 /* SongListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListVC.swift; sourceTree = "<group>"; };
+		D39AAD981DD401B100FA96BB /* SongVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongVC.swift; sourceTree = "<group>"; };
+		D39AAD991DD401B100FA96BB /* SpeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedVC.swift; sourceTree = "<group>"; };
+		D39AAD9C1DD401C200FA96BB /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		D3DA3EA21DC3F147005DEBB6 /* Keep Pace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Keep Pace.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DA3EA51DC3F147005DEBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3DA3EA71DC3F147005DEBB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D3DA3EAA1DC3F147005DEBB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D3DA3EAC1DC3F147005DEBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DA3EAF1DC3F147005DEBB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DA3EB11DC3F147005DEBB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,13 +58,14 @@
 		D3DA3EA41DC3F147005DEBB6 /* Keep Pace */ = {
 			isa = PBXGroup;
 			children = (
+				D39AAD981DD401B100FA96BB /* SongVC.swift */,
+				D39AAD991DD401B100FA96BB /* SpeedVC.swift */,
 				D3DA3EA51DC3F147005DEBB6 /* AppDelegate.swift */,
 				B2E82ACE1DD3EA890021D814 /* SongListVC.swift */,
-				D3DA3EA71DC3F147005DEBB6 /* ViewController.swift */,
 				D3DA3EA91DC3F147005DEBB6 /* Main.storyboard */,
-				D3DA3EAC1DC3F147005DEBB6 /* Assets.xcassets */,
 				D3DA3EAE1DC3F147005DEBB6 /* LaunchScreen.storyboard */,
 				D3DA3EB11DC3F147005DEBB6 /* Info.plist */,
+				D39AAD9C1DD401C200FA96BB /* Asset.xcassets */,
 			);
 			path = "Keep Pace";
 			sourceTree = "<group>";
@@ -126,8 +129,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39AAD9D1DD401C200FA96BB /* Asset.xcassets in Resources */,
 				D3DA3EB01DC3F147005DEBB6 /* LaunchScreen.storyboard in Resources */,
-				D3DA3EAD1DC3F147005DEBB6 /* Assets.xcassets in Resources */,
 				D3DA3EAB1DC3F147005DEBB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,9 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DA3EA81DC3F147005DEBB6 /* ViewController.swift in Sources */,
 				D3DA3EA61DC3F147005DEBB6 /* AppDelegate.swift in Sources */,
 				B2E82ACF1DD3EA890021D814 /* SongListVC.swift in Sources */,
+				D39AAD9B1DD401B100FA96BB /* SpeedVC.swift in Sources */,
+				D39AAD9A1DD401B100FA96BB /* SongVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
