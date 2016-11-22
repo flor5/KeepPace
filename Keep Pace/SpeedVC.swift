@@ -4,12 +4,10 @@
 //
 //  Created by Fong Lor, Carey Kuehl on 10/28/16.
 //  Copyright © 2016 Capstone. All rights reserved.
-// Changed TEST22222
 
 import UIKit
-//import MediaPlayer
-//import NotificationCenter
-//import CoreLocation
+import MediaPlayer
+import CoreLocation
 
 class SpeedVC: UIViewController {
     
@@ -17,100 +15,99 @@ class SpeedVC: UIViewController {
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var fastButton: UIButton!
     
+    var filteredSongs: [MPMediaItem]!
+    var speed: String!
+    var status: MPMediaLibraryAuthorizationStatus!
+    var locationManager: CLLocationManager = CLLocationManager()
     
-    
-    //, CLLocationManagerDelegate {
-    
-//    var player: MPMusicPlayerController!
-//    
-//    let slowerSpeed: Float = 0.7
-//    let slowSpeed: Float = 0.8
-//    let normalSpeed: Float = 1.0
-//    let fastSpeed:Float = 1.15
-//    let fasterSpeed:Float = 1.4
-//    
-//    var index = 0
-//    
-//    let manager = CLLocationManager()
-    
-//    func changeCurrentPlaybackRate(to speed: Float) {
-//        while player.currentPlaybackRate > speed {
-//            player.currentPlaybackRate -= 0.01
-//            print(player.currentPlaybackRate)
-//        }
-//        
-//        while player.currentPlaybackRate < speed {
-//            player.currentPlaybackRate += 0.01
-//            print(player.currentPlaybackRate)
-//        }
-//        
-//        player.currentPlaybackRate = speed
-//        print(player.currentPlaybackRate)
-//    }
-    
-    func setButtonInsets(button: UIButton){
-        let spacing : CGFloat = 20
+    @IBAction func switchToSongList(_ sender: UIButton) {
+        switch sender {
+        case slowButton:
+            speed = K.Speed.slow
+        case mediumButton:
+            speed = K.Speed.medium
+        case fastButton:
+            speed = K.Speed.fast
+        default:
+            break
+        }
         
-        //button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: 0)
+        if status == .authorized {
+            let songs = MPMediaQuery.songs().items
+            
+            if !songs!.isEmpty {
+                self.filteredSongs = self.filterSongs(from: songs!)
+            }
+        }
+        
+        super.performSegue(withIdentifier: K.SegueID.showSongList, sender: sender)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Keep Pace"
+        locationManager.requestWhenInUseAuthorization()
         
-        // http://stackoverflow.com/questions/33033737/display-image-and-text-in-button
+        MPMediaLibrary.requestAuthorization{(status) in
+            self.status = status
+        }
+        
+        self.title = "Keep Pace"
+        self.navigationController!.setToolbarHidden(true, animated: true)
+        
         setButtonInsets(button: slowButton)
         setButtonInsets(button: mediumButton)
         setButtonInsets(button: fastButton)
         
-        
-//        MPMediaLibrary.requestAuthorization { (status) in
-//            if status == .authorized {
-//                
-//                let songs = MPMediaQuery.songs().items
-//                print("you have \(songs!.count) songs")
-//                
-//                if !songs!.isEmpty {
-//                    print("bpm: \(songs![0].beatsPerMinute)")
-//                    //let query = MPMediaQuery.songsQuery()
-//                    let collection = MPMediaItemCollection(items: songs!)
-//                    self.player = MPMusicPlayerController.systemMusicPlayer()
-//                    self.player.setQueue(with: collection)
-//                    
-//                    self.player.play()
-//                    print("play music")
-//                }
-//                
-//                self.manager.desiredAccuracy = kCLLocationAccuracyBest
-//                self.manager.requestAlwaysAuthorization()
-//                self.manager.delegate = self
-//                self.manager.startUpdatingLocation()
-//            }
-//        }
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let speed = manager.location!.speed
-//        
-//        index += 1
-//        //speedLabel.text =  speed > 0 ? "i: \(index) Speed: \(manager.location!.speed)" : "i: \(index) Speed: 0"
-//    }
-//    
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print("Error: \(error.localizedDescription)")
-//    }
-//
-//    private func stopMusic() {
-//        if player != nil {
-//            //player.stop()
-//            print("player stopped")
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let songListVC = segue.destination as? SongListVC {
+            songListVC.filteredSongs = filteredSongs
+            songListVC.navigationTitle = speed
+        }
+    }
+    
+    func setButtonInsets(button: UIButton){
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+    }
+    
+    func filterSongs(from songs : [MPMediaItem]) -> [MPMediaItem]! {
+        let range: ClosedRange<Int> = self.determineRange(from: self.speed)
+        
+        var filteredSongs: [MPMediaItem] = []
+        
+        for song in songs {
+            let beatsPerMinute = song.beatsPerMinute
+            
+            if range.contains(beatsPerMinute) {
+                filteredSongs.append(song)
+            }
+        }
+
+        return filteredSongs
+    }
+    
+    func determineRange(from speed: String) -> ClosedRange<Int> {
+        var range: ClosedRange<Int>!
+        
+        switch self.speed! {
+        case K.Speed.slow:
+            range = K.BeatsPerMinuteRange.slowRange
+        case K.Speed.medium:
+            range = K.BeatsPerMinuteRange.mediumRange
+        case K.Speed.fast:
+            range = K.BeatsPerMinuteRange.fastRange
+        default:
+            break
+        }
+        
+        return range
+    }
     
 }
