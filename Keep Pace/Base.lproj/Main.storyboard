@@ -124,25 +124,25 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dm-Wt-jaP">
-                                <rect key="frame" x="140.5" y="510" width="54" height="21"/>
+                                <rect key="frame" x="140.5" y="451" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-Bj-NJv">
-                                <rect key="frame" x="140.5" y="562" width="54" height="21"/>
+                                <rect key="frame" x="140.5" y="492" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFZ-eB-3u6">
-                                <rect key="frame" x="204.5" y="510" width="41" height="21"/>
+                                <rect key="frame" x="204.5" y="451" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-We-591">
-                                <rect key="frame" x="204.5" y="562" width="41" height="21"/>
+                                <rect key="frame" x="204.5" y="492" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -167,15 +167,15 @@
                             <constraint firstItem="Xd8-We-591" firstAttribute="centerY" secondItem="CoO-Bj-NJv" secondAttribute="centerY" id="HCC-yM-Lr1"/>
                             <constraint firstItem="xRK-v0-G1g" firstAttribute="leading" secondItem="S2n-eD-sh3" secondAttribute="leadingMargin" id="I07-6x-XHE"/>
                             <constraint firstItem="x1i-ya-afF" firstAttribute="top" secondItem="xRK-v0-G1g" secondAttribute="bottom" constant="40" id="Os8-F8-l3b"/>
+                            <constraint firstItem="9Dm-Wt-jaP" firstAttribute="top" secondItem="x1i-ya-afF" secondAttribute="bottom" constant="40" id="WDN-2a-S1c"/>
                             <constraint firstItem="Xd8-We-591" firstAttribute="leading" secondItem="MFZ-eB-3u6" secondAttribute="leading" id="acP-lA-GIc"/>
-                            <constraint firstItem="CoO-Bj-NJv" firstAttribute="top" secondItem="9Dm-Wt-jaP" secondAttribute="bottom" constant="31" id="b0W-9I-n0D"/>
+                            <constraint firstItem="CoO-Bj-NJv" firstAttribute="top" secondItem="9Dm-Wt-jaP" secondAttribute="bottom" constant="20" id="b0W-9I-n0D"/>
                             <constraint firstItem="MFZ-eB-3u6" firstAttribute="leading" secondItem="9Dm-Wt-jaP" secondAttribute="trailing" constant="10" id="fBl-U3-uoS"/>
                             <constraint firstItem="Jjg-34-9OQ" firstAttribute="centerX" secondItem="S2n-eD-sh3" secondAttribute="centerX" id="lXh-UL-tdF"/>
                             <constraint firstItem="xRK-v0-G1g" firstAttribute="top" secondItem="Jjg-34-9OQ" secondAttribute="bottom" constant="8" id="no3-Xr-WJS"/>
                             <constraint firstItem="9Dm-Wt-jaP" firstAttribute="centerX" secondItem="S2n-eD-sh3" secondAttribute="centerX" constant="-20" id="tnh-r4-1kE"/>
                             <constraint firstItem="MFZ-eB-3u6" firstAttribute="centerY" secondItem="9Dm-Wt-jaP" secondAttribute="centerY" id="trU-j1-6bf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jjg-34-9OQ" secondAttribute="trailing" id="uXD-gh-J5Q"/>
-                            <constraint firstItem="tAO-Kr-fRM" firstAttribute="top" secondItem="CoO-Bj-NJv" secondAttribute="bottom" constant="40" id="vMB-23-mZ0"/>
                             <constraint firstItem="x1i-ya-afF" firstAttribute="centerX" secondItem="S2n-eD-sh3" secondAttribute="centerX" id="vbA-7G-JEp"/>
                             <constraint firstItem="Jjg-34-9OQ" firstAttribute="leading" secondItem="S2n-eD-sh3" secondAttribute="leadingMargin" id="xuo-lh-aPm"/>
                             <constraint firstItem="Jjg-34-9OQ" firstAttribute="top" secondItem="66P-H9-YFq" secondAttribute="bottom" id="yDa-es-e3u"/>
