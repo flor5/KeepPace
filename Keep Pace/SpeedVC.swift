@@ -10,7 +10,7 @@ import MediaPlayer
 import CoreLocation
 
 class SpeedVC: UIViewController {
-    
+
     @IBOutlet weak var slowButton: UIButton!
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var fastButton: UIButton!
@@ -19,15 +19,19 @@ class SpeedVC: UIViewController {
     var speed: String!
     var status: MPMediaLibraryAuthorizationStatus!
     var locationManager: CLLocationManager = CLLocationManager()
+    var range: ClosedRange<Int>!
     
     @IBAction func switchToSongList(_ sender: UIButton) {
         switch sender {
         case slowButton:
             speed = K.Speed.slow
+            range = K.BeatsPerMinuteRange.slowRange
         case mediumButton:
             speed = K.Speed.medium
+            range = K.BeatsPerMinuteRange.mediumRange
         case fastButton:
             speed = K.Speed.fast
+            range = K.BeatsPerMinuteRange.fastRange
         default:
             break
         }
@@ -52,7 +56,6 @@ class SpeedVC: UIViewController {
             self.status = status
         }
         
-        self.title = "Keep Pace"
         self.navigationController!.setToolbarHidden(true, animated: true)
         
         setButtonInsets(button: slowButton)
@@ -60,6 +63,12 @@ class SpeedVC: UIViewController {
         setButtonInsets(button: fastButton)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.toolbar.isHidden = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,8 +87,6 @@ class SpeedVC: UIViewController {
     }
     
     func filterSongs(from songs : [MPMediaItem]) -> [MPMediaItem]! {
-        let range: ClosedRange<Int> = self.determineRange(from: self.speed)
-        
         var filteredSongs: [MPMediaItem] = []
         
         for song in songs {
@@ -91,23 +98,6 @@ class SpeedVC: UIViewController {
         }
 
         return filteredSongs
-    }
-    
-    func determineRange(from speed: String) -> ClosedRange<Int> {
-        var range: ClosedRange<Int>!
-        
-        switch self.speed! {
-        case K.Speed.slow:
-            range = K.BeatsPerMinuteRange.slowRange
-        case K.Speed.medium:
-            range = K.BeatsPerMinuteRange.mediumRange
-        case K.Speed.fast:
-            range = K.BeatsPerMinuteRange.fastRange
-        default:
-            break
-        }
-        
-        return range
     }
     
 }

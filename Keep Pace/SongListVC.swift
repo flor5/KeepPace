@@ -23,7 +23,11 @@ class SongListVC: UITableViewController {
         songListVCTitle.title = navigationTitle
         
         self.navigationController!.setToolbarHidden(false, animated: true)
-        self.navigationController?.navigationBar.backItem?.backBarButtonItem?.title = "Back"
+        self.navigationController!.toolbar.isHidden = false
+        self.navigationController!.navigationBar.backItem?.backBarButtonItem?.title = "Back"
+        
+        self.tableView!.backgroundColor = UIColor.black
+        self.tableView!.tableFooterView = UIView()
 
         self.songListTableView.register(UITableViewCell.self, forCellReuseIdentifier: K.ReuseID.cell)
     }
@@ -36,14 +40,25 @@ class SongListVC: UITableViewController {
         return filteredSongs.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let song = filteredSongs[indexPath.row]
-        //let cell = songListTableView.dequeueReusableCell(withIdentifier: K.ReuseID.cell)! as UITableViewCell
-        
         
         let cell = songListTableView.dequeueReusableCell(withIdentifier: K.ReuseID.cell, for: indexPath)
         
-        cell.textLabel?.text = song.title
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel!.textColor = UIColor.white
+        cell.textLabel!.text = song.title
+
+        if let albumArt = song.artwork {
+            let size = 100
+           cell.imageView?.image = albumArt.image(at: CGSize(width: size, height: size))
+        } else {
+            cell.imageView?.image = UIImage(named: "music_2x.png")
+        }
         
         return cell
     }

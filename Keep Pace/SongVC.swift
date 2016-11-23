@@ -31,14 +31,18 @@ class SongVC: UIViewController, CLLocationManagerDelegate {
     var filteredSongs: [MPMediaItem]!
     var startingIndex: Int!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var songVCTitle: UINavigationItem!
+    @IBOutlet weak var artist: UILabel!
+    @IBOutlet weak var beatsPerMinute: UILabel!
+    @IBOutlet weak var albumArtImageView: UIImageView!
+    
     @IBOutlet weak var currentSpeed: UILabel!
     @IBOutlet weak var targetSpeed: UILabel!
+    
     @IBOutlet weak var song: UILabel!
     @IBOutlet weak var playPause: UIButton!
     
     @IBAction func playPausePressed(_ sender: Any) {
-        
         
         let playbackState = self.player.playbackState    //change to var
         
@@ -91,6 +95,10 @@ class SongVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        displaySongMetadata(song: filteredSongs[startingIndex])
+        albumArtImageView.contentMode = .scaleAspectFit
+        albumArtImageView.clipsToBounds = true
+        
         //targetSpeed.text = String(format: "%.0f mph", chosenSpeed)   // Giving error because no speed passed in yet
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -119,6 +127,26 @@ class SongVC: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // TODO
+    func displaySongMetadata(song: MPMediaItem) {
+        songVCTitle.title = song.title
+        beatsPerMinute.text = ("\(song.beatsPerMinute)")
+        
+        if let artist = song.artist {
+            self.artist.text = artist
+        } else {
+            self.artist.text = "Unknown"
+        }
+        
+        // check for album art, if none then display default image
+        if let albumArt = song.artwork {
+            let size = 260
+            self.albumArtImageView.image = albumArt.image(at: CGSize(width: size, height: size))
+        } else {
+            self.albumArtImageView.image = UIImage(named: "music_2x.png")
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locationManager.location!.speed)
         speed = locationManager.location!.speed
@@ -132,8 +160,8 @@ class SongVC: UIViewController, CLLocationManagerDelegate {
         let currentItem = self.player.nowPlayingItem
         
         if currentItem == nil {
-            self.imageView!.image = nil
-            self.imageView!.isHidden = true
+            self.albumArtImageView!.image = nil
+            self.albumArtImageView!.isHidden = true
             // self.artist.text = nil
             self.song.text = nil
             
@@ -141,8 +169,8 @@ class SongVC: UIViewController, CLLocationManagerDelegate {
             let size = CGSize(width: 260, height: 260)
             
             if let artwork = currentItem?.artwork?.image(at: size) {
-                self.imageView!.image = artwork
-                self.imageView!.isHidden = false
+                self.albumArtImageView!.image = artwork
+                self.albumArtImageView!.isHidden = false
             }
             
             // Display the artist and song name for the now-playing media item
