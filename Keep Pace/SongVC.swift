@@ -95,6 +95,9 @@ class SongVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.setToolbarHidden(false, animated: true)
+        self.navigationController!.toolbar.isHidden = false
+        
         displaySongMetadata(song: filteredSongs[startingIndex])
         albumArtImageView.contentMode = .scaleAspectFit
         albumArtImageView.clipsToBounds = true

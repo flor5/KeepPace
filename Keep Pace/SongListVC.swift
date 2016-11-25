@@ -22,8 +22,6 @@ class SongListVC: UITableViewController {
         
         songListVCTitle.title = navigationTitle
         
-        self.navigationController!.setToolbarHidden(false, animated: true)
-        self.navigationController!.toolbar.isHidden = false
         self.navigationController!.navigationBar.backItem?.backBarButtonItem?.title = "Back"
         
         self.tableView!.backgroundColor = UIColor.black
