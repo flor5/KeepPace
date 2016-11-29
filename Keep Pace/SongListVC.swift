@@ -23,11 +23,15 @@ class SongListVC: UITableViewController {
         songListVCTitle.title = navigationTitle
         
         self.navigationController!.navigationBar.backItem?.backBarButtonItem?.title = "Back"
-        
+
         self.tableView!.backgroundColor = UIColor.black
         self.tableView!.tableFooterView = UIView()
 
         self.songListTableView.register(UITableViewCell.self, forCellReuseIdentifier: K.ReuseID.cell)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.setToolbarHidden(true, animated: true)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,11 +49,22 @@ class SongListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let song = filteredSongs[indexPath.row]
         
-        let cell = songListTableView.dequeueReusableCell(withIdentifier: K.ReuseID.cell, for: indexPath)
+        //var cell = songListTableView.dequeueReusableCell(withIdentifier: K.ReuseID.cell, for: indexPath)
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle,                            reuseIdentifier: K.ReuseID.cell)
         
         cell.backgroundColor = UIColor.clear
         cell.textLabel!.textColor = UIColor.white
-        cell.textLabel!.text = song.title
+        cell.textLabel!.numberOfLines = 2
+        cell.textLabel!.text = song.title!
+        cell.detailTextLabel!.textColor = UIColor.white
+        
+        if let artist = song.artist {
+            cell.detailTextLabel!.text = artist
+        } else {
+            cell.detailTextLabel!.text = "Unknown"
+        }
+        
 
         if let albumArt = song.artwork {
             let size = 100
