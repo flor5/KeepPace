@@ -54,25 +54,26 @@ class SongListVC: UITableViewController {
         
         cell.backgroundColor = UIColor.clear
         cell.textLabel!.textColor = UIColor.white
-        cell.textLabel!.numberOfLines = 2
+        cell.textLabel!.numberOfLines = 1
         cell.textLabel!.text = song.title!
-        cell.detailTextLabel!.textColor = UIColor.white
+        cell.detailTextLabel!.textColor = UIColor(red: 138/255, green: 138/255, blue: 138/255, alpha: 1.0)
         
         var detailText = ""
-        
-        if let artist = song.artist {
-             detailText += artist
-        } else {
-            detailText += "Unknown"
-        }
-        
         var duration: String!
         
         secondsToHoursMinutesSeconds(Int(song.playbackDuration), result: { (h, m, s) in
-            duration = (" \(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))")
+            let hours = h > 0 ? "\(self.timeText(h)):" : ""
+            
+            duration = "\(hours)\(self.timeText(m)):\(self.timeText(s)) "
         })
-
+        
         detailText += duration
+        
+        if let artist = song.artist {
+            detailText += artist
+        } else {
+            detailText += "Unknown"
+        }
         
         cell.detailTextLabel?.text = detailText
 
