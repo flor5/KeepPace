@@ -31,6 +31,7 @@ class SongListVC: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController!.setToolbarHidden(true, animated: true)
     }
     
@@ -49,8 +50,6 @@ class SongListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let song = filteredSongs[indexPath.row]
         
-        //var cell = songListTableView.dequeueReusableCell(withIdentifier: K.ReuseID.cell, for: indexPath)
-        
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle,                            reuseIdentifier: K.ReuseID.cell)
         
         cell.backgroundColor = UIColor.clear
@@ -59,12 +58,23 @@ class SongListVC: UITableViewController {
         cell.textLabel!.text = song.title!
         cell.detailTextLabel!.textColor = UIColor.white
         
+        var detailText = ""
+        
         if let artist = song.artist {
-            cell.detailTextLabel!.text = artist
+             detailText += artist
         } else {
-            cell.detailTextLabel!.text = "Unknown"
+            detailText += "Unknown"
         }
         
+        var duration: String!
+        
+        secondsToHoursMinutesSeconds(Int(song.playbackDuration), result: { (h, m, s) in
+            duration = (" \(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))")
+        })
+
+        detailText += duration
+        
+        cell.detailTextLabel?.text = detailText
 
         if let albumArt = song.artwork {
             let size = 100
@@ -74,6 +84,15 @@ class SongListVC: UITableViewController {
         }
         
         return cell
+    }
+    
+    // http://stackoverflow.com/questions/26794703/swift-integer-conversion-to-hours-minutes-seconds
+    func secondsToHoursMinutesSeconds(_ seconds : Int, result: @escaping (Int, Int, Int)->()) {
+        result(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func timeText(_ s: Int) -> String {
+        return s < 10 ? "0\(s)" : "\(s)"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
